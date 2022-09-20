@@ -15,11 +15,13 @@ export default function Home() {
 
               <p>Ajudaremos você a encontrar os melhores produtos disponívels no mercado</p>
 
+
+            </div>
+            <div>
               <Link to="/products">
                 <ButttonIcon />
               </Link>
             </div>
-
           </div>
           <div className="home-image-container">
             <MainImage />
