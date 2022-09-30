@@ -19,7 +19,7 @@ export default function Home() {
             </div>
             <div>
               <Link to="/products">
-                <ButttonIcon />
+                <ButttonIcon text='Inicie agora a sua busca' />
               </Link>
             </div>
           </div>

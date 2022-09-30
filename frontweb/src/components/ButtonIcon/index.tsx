@@ -1,11 +1,15 @@
-import './styles.scss'
+import './styles.scss';
 import { ReactComponent as ArrowIcon } from 'assets/images/Seta.svg';
 
-export default function ButttonIcon() {
+interface ButtonIconProps {
+  text: string,
+}
+
+export default function ButttonIcon({ text }: ButtonIconProps) {
   return (
     <div className="btn-container">
       <button className="btn btn-lg btn-primary btn-icon">
-        <h6>INICIE AGORA A SUA BUSCA</h6>
+        <h6>{text}</h6>
       </button>
       <div className="btn btn-lg btn-icon-container">
         <ArrowIcon />
