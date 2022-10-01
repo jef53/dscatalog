@@ -1,16 +1,21 @@
 import './styles.scss'
-import ProductImg from 'assets/images/product.png'
-import ProductPrice from 'components/ProductPrice'
 
-export default function () {
+import ProductPrice from 'components/ProductPrice'
+import { Product } from 'types/product'
+
+interface ProductCardProps {
+  product: Product,
+}
+
+export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="base-card product-card">
       <div className="card-top-container">
-        <img src={ProductImg} alt="Product" />
+        <img src={product.imgUrl} alt={product.name} />
       </div>
       <div className="card-bottom-container">
-        <h6>Nome do produto</h6>
-        <div><ProductPrice /></div >
+        <h6>{product.name}</h6>
+        <div><ProductPrice price={product.price} /></div >
       </div>
     </div>
   )

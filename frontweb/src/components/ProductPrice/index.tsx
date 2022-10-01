@@ -1,10 +1,14 @@
 import './styles.scss'
 
-export default function ProductPrice() {
+interface ProductPriceProps {
+  price: number,
+}
+
+export default function ProductPrice({ price }: ProductPriceProps) {
   return (
     <div className="product-price-container">
       <span>R$</span>
-      <h3>2345.67</h3>
+      <h3>{price}</h3>
     </div>
   )
 }
