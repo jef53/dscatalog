@@ -1,0 +1,123 @@
+.product-details-container {
+  padding: 20px 10px;
+}
+
+.product-details-card {
+  border-radius: 10px;
+  background-color: white;
+  padding: 7px;
+}
+
+.product-details-img-container {
+  border: 1px #dfdfdf solid;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 5px;
+
+  img {
+    width: 70%;
+    margin: 5% 15%;
+  }
+}
+.description-container {
+  margin: 30px 10px;
+  border: 1px #dfdfdf solid;
+  border-radius: 15px;
+  font-size: 22px;
+  padding: 10px 30px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  h2 {
+    font-size: 0.9em;
+    margin: 15px;
+    color: gray;
+  }
+
+  p {
+    font-size: 0.7em;
+    margin: 15px;
+    color: gray;
+  }
+}
+
+.name-price-container {
+  margin: 15px 10px;
+}
+
+.goback-container {
+  display: flex;
+  font-size: 22px;
+  align-items: center;
+  margin: 20px 10px;
+
+  h2 {
+    font-size: 0.8em;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .product-details-card {
+    margin: 15px;
+    padding: 10px 20px;
+  }
+  .product-details-img-container {
+    border: 1px #dfdfdf solid;
+    border-radius: 15px;
+    margin: 10px 10px 40px 10px;
+    padding: 5px;
+
+    img {
+      width: 30%;
+      margin: 0% 35%;
+    }
+  }
+  .name-price-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+    margin-right: 10%;
+  }
+
+  .description-container {
+    flex-direction: column;
+
+    padding: 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .product-details-container {
+    padding: 50px 30px;
+  }
+
+  .product-details-card {
+    padding: 20px 30px 50px 30px;
+  }
+
+  .product-details-img-container {
+    img {
+      width: 60%;
+      margin: 0% 20%;
+    }
+  }
+  .description-container {
+    margin: 10px;
+    height: 95%;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .name-price-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 10px 0;
+    margin: 15px;
+    margin-right: 10%;
+    h1 {
+      padding: 10px 0;
+    }
+  }
+}
