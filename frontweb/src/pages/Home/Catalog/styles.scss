@@ -1,0 +1,17 @@
+.catalog-row-title {
+  margin: 5px 0 25px 5px;
+  font-size: 21px;
+  h1 {
+    font-size: 0.9em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .catalog-row-title {
+    font-size: 21px;
+    margin: 5px 0 25px 0px;
+    h1 {
+      font-size: 1.2em;
+    }
+  }
+}
