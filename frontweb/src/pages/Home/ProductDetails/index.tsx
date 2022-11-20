@@ -8,22 +8,26 @@ import { useEffect, useState } from 'react'
 import { Product } from 'types/product'
 import axios from 'axios'
 import { BASE_URL } from 'util/requests'
+import HeadBodyGrid from 'components/Loader'
 
 type UrlParams = {
   productId: string,
-}
+};
 
 export function ProductDetails() {
 
   const { productId } = useParams<UrlParams>();
   const [product, setProduct] = useState<Product>();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios.get(`${BASE_URL}/products/${productId}`)
       .then(response => {
         setProduct(response.data);
-      })
-  }, [productId])
+      }).finally(() => {
+        setIsLoading(false);
+      });
+  }, [productId]);
 
   return (
     <div className="product-details-container">
@@ -32,7 +36,7 @@ export function ProductDetails() {
           <ArrowIcon /> <h2>VOLTAR</h2>
         </Link>
         <div className="row ">
-          <div className="col-xl-6">
+          {isLoading ? <HeadBodyGrid /> : (<div className="col-xl-6">
             <div className="product-details-img-container">
               <img src={product?.imgUrl} alt="product" />
             </div>
@@ -40,7 +44,9 @@ export function ProductDetails() {
               <h1>{product?.name}</h1>
               {product?.price && <ProductPrice price={product.price} />}
             </div>
+
           </div>
+          )}
           <div className="col-xl-6">
             <div className="description-container">
               <h2>Descrição do produto</h2>

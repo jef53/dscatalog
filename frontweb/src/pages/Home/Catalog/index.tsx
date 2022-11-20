@@ -1,4 +1,5 @@
 import axios from "axios";
+import HeadBodyGrid from "components/Loader";
 import { Pagination } from "components/Pagination";
 import ProductCard from "components/ProductCard";
 import { useEffect, useState } from "react";
@@ -9,7 +10,8 @@ import { BASE_URL } from "util/requests";
 import './styles.scss'
 
 export default function Catalog() {
-  const [page, setPage] = useState<SpringPage<Product>>()
+  const [page, setPage] = useState<SpringPage<Product>>();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const params: AxiosParams = {
@@ -20,13 +22,15 @@ export default function Catalog() {
         size: 12,
       },
     }
-
+    setIsLoading(true);
     axios(params)
       .then(
         response => {
           setPage(response.data)
         }
-      )
+      ).finally(() => {
+        setIsLoading(false);
+      })
   }, [])
 
 
@@ -39,19 +43,21 @@ export default function Catalog() {
       </div>
 
       <div className="row">
-        {page?.content.map(product => (
+        {isLoading ? <HeadBodyGrid />
+          :
+          page?.content.map(product => (
 
-          <div key={product.id} className="col-sm-6 col-lg-4 col-xl-3">
+            <div key={product.id} className="col-sm-6 col-lg-4 col-xl-3">
 
-            <Link to={`/products/${product.id}`}>
-              <ProductCard product={product} />
-            </Link>
+              <Link to={`/products/${product.id}`}>
+                <ProductCard product={product} />
+              </Link>
 
-          </div>
+            </div>
 
-        )
+          )
 
-        )}
+          )}
 
       </div>
 

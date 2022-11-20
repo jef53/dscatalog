@@ -2,7 +2,7 @@ import ButttonIcon from "components/ButtonIcon";
 import ProductCard from "components/ProductCard";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "./Navbar";
-import Home from "../../Home"
+import Home from "../Home"
 import './styles.scss'
 import { ReactComponent as ArrowIcon } from 'assets/images/Seta.svg'
 
